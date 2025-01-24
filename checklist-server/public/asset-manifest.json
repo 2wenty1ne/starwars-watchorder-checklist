@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b145601f.css",
+    "main.js": "/static/js/main.3b0376f8.js",
+    "static/media/STJEDISE.TTF": "/static/media/STJEDISE.ae4970bd8efca4ee58be.TTF",
+    "index.html": "/index.html",
+    "main.b145601f.css.map": "/static/css/main.b145601f.css.map",
+    "main.3b0376f8.js.map": "/static/js/main.3b0376f8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b145601f.css",
+    "static/js/main.3b0376f8.js"
+  ]
+}
