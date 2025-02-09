@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
+import DOMPurify from 'dompurify';
 import './App.css'
 
 interface ChecklistItem {
@@ -53,7 +54,9 @@ const App: React.FC = () => {
                           <use xlinkHref="#check-4"></use>
                         </svg>
                       </span>
-                      <span>{item.text}</span>
+                      <span 
+                        style={{ whiteSpace: 'pre-wrap' }}
+                        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.text) }} />
                     </label>
                     <svg className="inline-svg">
                       <symbol id="check-4" viewBox="0 0 12 10">

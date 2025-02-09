@@ -26,6 +26,15 @@ body {
   color: var(--text-color);
 }
 
+.a, .a:visited {
+  color: inherit;
+  text-decoration: underline;
+}
+
+
+.a:hover {
+  text-decoration: none;
+}
 
 .header {
   font-family: StarWars;
