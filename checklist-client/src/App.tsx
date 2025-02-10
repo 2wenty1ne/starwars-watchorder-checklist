@@ -15,19 +15,7 @@ const App: React.FC = () => {
   const [items, setItems] = useState<ChecklistItem[]>([]);
 
   useEffect(() => {
-    document.title = 'Clone Wars Checklist';
-
-    // var iconPath = "rex.jpg";
-    // const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
-
-    // if (!link) {
-    //   const newLink = document.createElement('link');
-    //   newLink.rel = 'icon';
-    //   document.head.appendChild(newLink);
-    //   newLink.href = iconPath; // Replace with your favicon path
-    // } else {
-    //   link.href = iconPath; // Replace with your favicon path
-    // }
+    // document.title = 'Clone Wars Checklist';
 
 
     // Listen for checklist updates from the server
