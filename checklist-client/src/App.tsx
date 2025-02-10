@@ -70,7 +70,7 @@ const App: React.FC = () => {
                         <div className="ep-count">{item.epCount}</div>
                         <div className="ep-links">
                           <a className="a" target="_blank" rel="noopener noreferrer" href={item.titleLink}>{item.title}</a>
-                           | 
+                          &nbsp;|&nbsp;
                           <a className="a" target="_blank" rel="noopener noreferrer" href={item.dLink}>Disney+ Stream</a>
                         </div>
                       </div>
