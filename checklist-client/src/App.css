@@ -81,6 +81,11 @@ body {
   font-size: 1rem;
 }
 
+.row-container {
+  display: flex;
+  align-items: center;
+}
+
 /* Custom checkbox styles */
 .checkbox-wrapper-4 * {
   box-sizing: border-box;

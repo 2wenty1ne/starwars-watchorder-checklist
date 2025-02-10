@@ -65,13 +65,13 @@ const App: React.FC = () => {
                         </svg>
                       </span>
 
-                      <div id="row-container">
-                        <span id="ep-num">{item.displayCount}</span>
-                        <span id="ep-count">{item.epCount}</span>
-                        <span id="ep-links">
-                          <a target="_blank" rel="noopener noreferrer" href={item.titleLink}>{item.title}</a>
+                      <div className="row-container">
+                        <span className="ep-num">{item.displayCount}</span>
+                        <span className="ep-count">{item.epCount}</span>
+                        <span className="ep-links">
+                          <a className="a" target="_blank" rel="noopener noreferrer" href={item.titleLink}>{item.title} </a>
                           | 
-                          <a target="_blank" rel="noopener noreferrer" href={item.dLink}>Disney+ Stream</a>
+                          <a className="a" target="_blank" rel="noopener noreferrer" href={item.dLink}> Disney+ Stream</a>
                         </span>
                       </div>
                     </label>
