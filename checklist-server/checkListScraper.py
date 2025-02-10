@@ -15,7 +15,7 @@ def createAmountSpaces(counter):
 
 def createA(link, text):
     className = 'class="a"'
-    return f'<a {className} tabindex="0" target="_blank" rel="noopener" href="{link}">{text}</a>'
+    return f'<a {className} tabindex="0" target="_blank" href="{link}">{text}</a>'
 
 
 def createText(counter, first_number, title_link, title_text, dplus_link):

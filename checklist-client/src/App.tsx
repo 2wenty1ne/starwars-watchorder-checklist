@@ -9,13 +9,12 @@ interface ChecklistItem {
   completed: boolean;
 }
 
-const socket = io('https://omegalul.ddns.net', { secure: true });// Replace with your server IP
+const socket = io('https://omegalul.ddns.net', { secure: true });
 
 const App: React.FC = () => {
   const [items, setItems] = useState<ChecklistItem[]>([]);
 
   useEffect(() => {
-    // document.title = 'Clone Wars Checklist';
 
 
     // Listen for checklist updates from the server
