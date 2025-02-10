@@ -86,6 +86,12 @@ body {
   align-items: center;
 }
 
+.ep-num, .ep-count {
+  flex-shrink: 0;
+  min-width: 100px;
+}
+
+
 /* Custom checkbox styles */
 .checkbox-wrapper-4 * {
   box-sizing: border-box;
