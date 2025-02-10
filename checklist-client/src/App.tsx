@@ -24,9 +24,9 @@ const App: React.FC = () => {
       const newLink = document.createElement('link');
       newLink.rel = 'icon';
       document.head.appendChild(newLink);
-      newLink.href = 'path/to/your/favicon.ico'; // Replace with your favicon path
+      newLink.href = iconPath; // Replace with your favicon path
     } else {
-      link.href = 'path/to/your/favicon.ico'; // Replace with your favicon path
+      link.href = iconPath; // Replace with your favicon path
     }
 
 
