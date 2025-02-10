@@ -88,7 +88,8 @@ body {
 
 .ep-num, .ep-count {
   flex-shrink: 0;
-  min-width: 100px;
+  min-width: 3em;
+  padding-left: 0.5em;
 }
 
 
