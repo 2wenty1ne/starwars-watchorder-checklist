@@ -1,4 +1,5 @@
 import re
+import os
 import csv
 
 pattern = r"(\d+) \[([^\]]+)\]\((https:\/\/[^)]+)\) \\\| \[Stream on Disney\+(?:  <br>)?\]\((https:\/\/[^)]+)\)" 
@@ -79,3 +80,8 @@ with open("checkListInput.txt", "r") as file:
     with open("episodes.csv", "w", newline="") as file:
         writer = csv.writer(file)
         writer.writerows(data)
+
+    with open("episodes.csv", "r+") as file:
+        file.seek(0, 2)
+        file.seek(file.tell() - len(os.linesep), 0)
+        file.truncate()
