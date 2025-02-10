@@ -10,7 +10,7 @@ interface ChecklistItem {
 }
 
 // const socket = io('http://localhost:3000'); // Replace with your server IP
-const socket = io('http://omegalul.ddns.net:80'); // Replace with your server IP
+const socket = io('http://omegalul.ddns.net'); // Replace with your server IP
 
 const App: React.FC = () => {
   const [items, setItems] = useState<ChecklistItem[]>([]);

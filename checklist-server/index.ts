@@ -4,7 +4,12 @@ import { Server } from 'socket.io';
 
 const app = express();
 const server = createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+    cors: {
+        origin: "http://omegalul.ddns.net",
+        methods: ["GET", "POST"]
+    }
+});
 
 // In-memory storage for the checklist
 const checklistItems = [
