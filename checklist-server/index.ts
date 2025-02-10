@@ -6,7 +6,7 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "http://omegalul.ddns.net",
+        origin: "https://omegalul.ddns.net",
         methods: ["GET", "POST"]
     }
 });
