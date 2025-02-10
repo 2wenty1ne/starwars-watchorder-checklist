@@ -9,16 +9,24 @@ interface ChecklistItem {
   completed: boolean;
 }
 
+interface Episode {
+  id: number,
+  displayCount: string,
+  epCount: string, 
+  titleLink: string, 
+  title: string, 
+  dLink: string, 
+  completed: boolean
+}
+
 const socket = io('https://omegalul.ddns.net', { secure: true });
 
 const App: React.FC = () => {
-  const [items, setItems] = useState<ChecklistItem[]>([]);
+  const [items, setItems] = useState<Episode[]>([]);
 
   useEffect(() => {
-
-
     // Listen for checklist updates from the server
-    socket.on('checklist-update', (updatedItems: ChecklistItem[]) => {
+    socket.on('checklist-update', (updatedItems: Episode[]) => {
       setItems(updatedItems);
     });
 
@@ -56,9 +64,16 @@ const App: React.FC = () => {
                           <use xlinkHref="#check-4"></use>
                         </svg>
                       </span>
-                      <span 
-                        style={{ whiteSpace: 'pre-wrap' }}
-                        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.text) }} />
+
+                      <div id="row-container">
+                        <span id="ep-num">{item.displayCount}</span>
+                        <span id="ep-count">{item.epCount}</span>
+                        <span id="ep-links">
+                          <a target="_blank" rel="noopener noreferrer" href={item.titleLink}>{item.title}</a>
+                          | 
+                          <a target="_blank" rel="noopener noreferrer" href={item.dLink}>Disney+ Stream</a>
+                        </span>
+                      </div>
                     </label>
                     <svg className="inline-svg">
                       <symbol id="check-4" viewBox="0 0 12 10">

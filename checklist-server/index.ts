@@ -1,6 +1,7 @@
 import express from 'express';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
+import * as fs from "fs";
 
 const app = express();
 const server = createServer(app);
@@ -11,8 +12,30 @@ const io = new Server(server, {
     }
 });
 
-// In-memory storage for the checklist
-const checklistItems = [
+const data = fs.readFileSync("episodes.csv", "utf-8");
+const rows = data.split("\n").map(row => row.split(","))
+
+type Episode = {
+    id: number,
+    displayCount: string,
+    epCount: string, 
+    titleLink: string, 
+    title: string, 
+    dLink: string, 
+    completed: boolean
+}
+
+var checklistItems: Episode[] = [];
+
+var counter = 1
+for (let row of rows) {
+    var ep: Episode = {id: counter, displayCount: row[0], epCount: row[1], titleLink: row[2], title: row[3], dLink: row[4], completed: false}
+
+    checklistItems.push(ep)
+    counter += 1
+}
+
+const checklistItems2 = [
     { id: 1, text: '1       2-16   <a class="a" tabindex="0" href="https://www.starwars.com/tv-shows/clone-wars/cat-and-mouse-episode-guide">Cat and Mouse</a> | <a class="a" tabindex="0" href="https://www.disneyplus.com/video/5faf61af-2ce0-4baa-a647-a4f4363eba0e?cid=DTCI-Synergy-DDN-Site-Acquisition-StarWars-US-StarWars-StarWarsTheCloneWars-EN-BlogArticleEmbed-TCWChronological_StreamOnDisneyPlusCTA-NA">Disney+ Stream</a>', completed: false },
     { id: 2, text: '2       1-16   <a class="a" tabindex="0" href="https://www.starwars.com/tv-shows/clone-wars/the-hidden-enemy-episode-guide">Hidden Enemy</a> | <a class="a" tabindex="0" href="https://www.disneyplus.com/video/7c732b05-b90f-4090-a184-5652be228139?cid=DTCI-Synergy-DDN-Site-Acquisition-StarWars-US-StarWars-StarWarsTheCloneWars-EN-BlogArticleEmbed-TCWChronological_StreamOnDisneyPlusCTA-NA">Disney+ Stream</a>', completed: false },
     { id: 3, text: '         T        <a class="a" tabindex="0" href="https://www.disneyplus.com/movies/star-wars-the-clone-wars/AVmv1ulT1nQW?cid=DTCI-Synergy-StarWars-Site-Aquisition-USLaunch-US-StarWars-StarWarsTheCloneWars-EN-NavPipe-StartStreamingNow-NA">Clone Cadets</a> | <a class="a" tabindex="0" href="https://www.disneyplus.com/movies/star-wars-the-clone-wars/AVmv1ulT1nQW?cid=DTCI-Synergy-DDN-Site-Acquisition-StarWars-US-StarWars-StarWarsTheCloneWars-EN-BlogArticleEmbed-TCWChronological_StreamOnDisneyPlusCTA-NA">Disney+ Stream</a>', completed: false },
@@ -147,6 +170,8 @@ const checklistItems = [
     { id: 132, text: '131   7-11   <a class="a" tabindex="0" href="https://www.starwars.com/series/clone-wars/shattered-episode-guide">Shattered</a> | <a class="a" tabindex="0" href="https://www.disneyplus.com/video/cfcd7267-d3d1-4e98-92d6-3129b4c8d686?cid=DTCI-Synergy-DDN-Site-Acquisition-StarWars-US-StarWars-StarWarsTheCloneWars-EN-BlogArticleEmbed-TCWChronological_StreamOnDisneyPlusCTA-NA">Disney+ Stream</a>', completed: false },
     { id: 133, text: '132   7-12   <a class="a" tabindex="0" href="https://www.starwars.com/series/clone-wars/victory-and-death-episode-guide">Victory and Death</a> | <a class="a" tabindex="0" href="https://www.disneyplus.com/video/f21bd5ab-d24d-4a4a-b09c-d09d4361148b?cid=DTCI-Synergy-DDN-Site-Acquisition-StarWars-US-StarWars-StarWarsTheCloneWars-EN-BlogArticleEmbed-TCWChronological_StreamOnDisneyPlusCTA-NA">Disney+ Stream</a>', completed: false },
 ];
+
+
 
 // Socket.io connection handler
 io.on('connection', (socket) => {
