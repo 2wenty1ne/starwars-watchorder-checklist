@@ -17,17 +17,17 @@ const App: React.FC = () => {
   useEffect(() => {
     document.title = 'Clone Wars Checklist';
 
-    var iconPath = "rex.jpg";
-    const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
+    // var iconPath = "rex.jpg";
+    // const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
 
-    if (!link) {
-      const newLink = document.createElement('link');
-      newLink.rel = 'icon';
-      document.head.appendChild(newLink);
-      newLink.href = iconPath; // Replace with your favicon path
-    } else {
-      link.href = iconPath; // Replace with your favicon path
-    }
+    // if (!link) {
+    //   const newLink = document.createElement('link');
+    //   newLink.rel = 'icon';
+    //   document.head.appendChild(newLink);
+    //   newLink.href = iconPath; // Replace with your favicon path
+    // } else {
+    //   link.href = iconPath; // Replace with your favicon path
+    // }
 
 
     // Listen for checklist updates from the server
