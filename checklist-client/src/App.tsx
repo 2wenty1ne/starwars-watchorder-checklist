@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
-import DOMPurify from 'dompurify';
 import './App.css'
-
-interface ChecklistItem {
-  id: number;
-  text: string;
-  completed: boolean;
-}
 
 interface Episode {
   id: number,
